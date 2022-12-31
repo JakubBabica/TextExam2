@@ -11,4 +11,9 @@
       <Folder Include="Models" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Application\Application.csproj" />
+      <ProjectReference Include="..\Blazor\Blazor.csproj" />
+    </ItemGroup>
+
 </Project>

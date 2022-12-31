@@ -15,4 +15,14 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.12" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="DAOs" />
+      <Folder Include="Migrations" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Application\Application.csproj" />
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+    </ItemGroup>
+
 </Project>
