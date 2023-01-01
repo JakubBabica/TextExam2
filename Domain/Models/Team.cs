@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Domain.Models;
 
-namespace Domain.Models;
+namespace Domain;
 
 public class Team
 {
