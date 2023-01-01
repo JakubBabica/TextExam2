@@ -1,8 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.LogicInterfaces;
+using Domain.DTOs;
+using Domain.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
-
+[ApiController]
+[Route("[controller]")]
 public class PlayerController:ControllerBase
 {
-    
+    private readonly IPlayerInterface Logic;
+
+    public PlayerController(IPlayerInterface logic)
+    {
+        Logic = logic;
+    }
+    [HttpPost, Route("Player")]
+    public async Task<ActionResult> CreateAsync([FromBody] NewPlayerDTO dto)
+    {
+        try
+        {
+            Player player = await Logic.CreateAsync(dto);
+            return Ok(player);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }

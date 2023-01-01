@@ -1,22 +1,23 @@
 ﻿using Application.DAOInterfaces;
+using Domain;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace EfcDataAccess.DAOs;
 
-public class PlayerEfcDao:IPlayerDao
+public class TeamEfcDao:ITeamDao
 {
     private readonly Context Context;
 
-    public PlayerEfcDao(Context context)
+    public TeamEfcDao(Context context)
     {
         Context = context;
-    }
-
-    public async Task<Player> createAsync(Player player)
+    }  
+    
+    public async Task<Team> createAsync(Team team)
     {
-        EntityEntry<Player> newPlayer = await Context.Players.AddAsync(player);
+        EntityEntry<Team> newTeam = await Context.Teams.AddAsync(team);
         await Context.SaveChangesAsync();
-        return newPlayer.Entity;
+        return newTeam.Entity;
     }
 }

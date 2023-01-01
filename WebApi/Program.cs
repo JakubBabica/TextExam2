@@ -1,3 +1,9 @@
+using Application.DAOInterfaces;
+using Application.Logic;
+using Application.LogicInterfaces;
+using EfcDataAccess;
+using EfcDataAccess.DAOs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +12,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<Context>();
+builder.Services.AddScoped<ITeamDao, TeamEfcDao>();
+builder.Services.AddScoped<IPlayerDao, PlayerEfcDao>();
+builder.Services.AddScoped<ITeamLogic, TeamLogic>();
+builder.Services.AddScoped<IPlayerInterface, PlayerLogic>();
 builder.Services.AddScoped(sp=>new HttpClient
     {
         BaseAddress = new Uri("http://localhost:7145")
