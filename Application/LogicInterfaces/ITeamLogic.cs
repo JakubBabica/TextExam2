@@ -6,4 +6,5 @@ namespace Application.LogicInterfaces;
 public interface ITeamLogic
 {
     Task<Team> createAsync(NewTeamDTO dto);
+    public Task<IEnumerable<Team>> GetAsync();
 }

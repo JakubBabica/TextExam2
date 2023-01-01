@@ -25,4 +25,9 @@ public class TeamLogic:ITeamLogic
         Team created = await Dao.createAsync(toCreate);
         return created;
     }
+
+    public Task<IEnumerable<Team>> GetAsync()
+    {
+        return Dao.GetAsync();
+    }
 }

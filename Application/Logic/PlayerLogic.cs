@@ -31,4 +31,8 @@ public class PlayerLogic:IPlayerInterface
         Player created = await PlayerDao.createAsync(toCreate);
         return created;
     }
+    public Task DeleteAsync(int id)
+    {
+        return PlayerDao.deleteAsync(id);
+    }
 }

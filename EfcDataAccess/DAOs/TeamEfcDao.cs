@@ -20,4 +20,12 @@ public class TeamEfcDao:ITeamDao
         await Context.SaveChangesAsync();
         return newTeam.Entity;
     }
+
+    public Task<IEnumerable<Team>> GetAsync()
+    {
+        IEnumerable<Team> teams = Context.Teams.AsEnumerable();
+        teams = Context.Teams;
+
+        return Task.FromResult(teams);
+    }
 }

@@ -28,4 +28,18 @@ public class TeamController:ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Team>>> GetAsync()
+    {
+        try
+        {
+            IEnumerable<Team> teams = await Logic.GetAsync();
+            return Ok(teams);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
 }

@@ -19,4 +19,16 @@ public class PlayerEfcDao:IPlayerDao
         await Context.SaveChangesAsync();
         return newPlayer.Entity;
     }
+    public Task deleteAsync(int id)
+    {
+        foreach (Player player in Context.Players)
+        {
+            if (player.Id.Equals(id))
+            {
+                Context.Players.Remove(player); 
+                Context.SaveChangesAsync();
+            }
+        }
+        return Task.CompletedTask;
+    }
 }
