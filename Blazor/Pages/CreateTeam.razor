@@ -1,0 +1,29 @@
+﻿@page "/CreateTeam"
+<h3>CreateTeam</h3>
+<div class="card">
+    <div class="field">
+        <label>Name</label>
+        <input type="text"@bind="Name"/>
+    </div>
+    <div class="field">
+        <label>Color</label>
+        <input type="text"@bind="Color"/>
+    </div>
+    <div class="field">
+        <label>Condition</label>
+        <input type="text"@bind="Condition"/>
+    </div>
+    <div class="field">
+        <select class="form-control">
+            <option>-- isFavourite --</option>
+            <option class="card" value="@isFavourite.Equals(true)">
+                <p style="border: 1px solid; padding: 5px">true </p>
+            </option>
+            <option class="card" value="@isFavourite.Equals(false)">
+                <p style="border: 1px solid; padding: 5px">false </p>
+            </option>
+        </select>
+    </div>
+@code {
+    
+}
