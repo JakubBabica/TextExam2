@@ -8,8 +8,10 @@
 
     <ItemGroup>
       <Folder Include="DAOInterface" />
-      <Folder Include="Logic" />
-      <Folder Include="LogicInterface" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Blazor\Blazor.csproj" />
     </ItemGroup>
 
 </Project>
