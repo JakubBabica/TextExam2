@@ -15,8 +15,8 @@ public class TeamController:ControllerBase
     {
         Logic = logic;
     }
-    [HttpPost, Route("team")]
-    public async Task<ActionResult> CreateAsync([FromBody] NewTeamDTO dto)
+    [HttpPost]
+    public async Task<ActionResult> CreateAsync(NewTeamDTO dto)
     {
         try
         {

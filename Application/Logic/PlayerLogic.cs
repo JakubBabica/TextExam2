@@ -26,7 +26,8 @@ public class PlayerLogic:IPlayerInterface
             Id = dto.Id,
             Position = dto.Position,
             Salary = dto.Salary,
-            ShirtNo = dto.ShirtNo
+            ShirtNo = dto.ShirtNo,
+            Teamname =  dto.TeamName
         };
         Player created = await PlayerDao.createAsync(toCreate);
         return created;

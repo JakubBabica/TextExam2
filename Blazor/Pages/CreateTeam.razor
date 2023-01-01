@@ -1,4 +1,8 @@
 ﻿@page "/CreateTeam"
+@using Blazor.Services
+@using Domain.DTOs
+@using Microsoft.AspNetCore.Components
+@inject ITeamService Service
 <h3>CreateTeam</h3>
 <div class="card">
     <div class="field">
@@ -6,24 +10,38 @@
         <input type="text"@bind="Name"/>
     </div>
     <div class="field">
-        <label>Color</label>
-        <input type="text"@bind="Color"/>
+        <label>NameOfCoach</label>
+        <input type="text"@bind="NameOfCoach"/>
     </div>
     <div class="field">
-        <label>Condition</label>
-        <input type="text"@bind="Condition"/>
+        <label>Ranking</label>
+        <input type="text"@bind="Ranking"/>
     </div>
-    <div class="field">
-        <select class="form-control">
-            <option>-- isFavourite --</option>
-            <option class="card" value="@isFavourite.Equals(true)">
-                <p style="border: 1px solid; padding: 5px">true </p>
-            </option>
-            <option class="card" value="@isFavourite.Equals(false)">
-                <p style="border: 1px solid; padding: 5px">false </p>
-            </option>
-        </select>
-    </div>
-@code {
-    
-}
+</div>
+<button @onclick="createTeam">add team</button>
+    @code {
+    private string Name;
+    public string NameOfCoach;
+    public int Ranking;
+        private string errorLabel;
+        
+        private async Task createTeam()
+        {
+            errorLabel = "";
+            try
+            {
+                await Service.CreateAsync(new NewTeamDTO(Name,NameOfCoach,Ranking));
+                Name = "";
+                NameOfCoach = "";
+                Ranking = 0;
+                errorLabel = "";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                errorLabel = $"Error: {e.Message}";
+            }
+        }
+        
+
+    }

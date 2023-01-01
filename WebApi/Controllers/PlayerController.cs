@@ -14,11 +14,12 @@ public class PlayerController:ControllerBase
     {
         Logic = logic;
     }
-    [HttpPost, Route("Player")]
-    public async Task<ActionResult> CreateAsync([FromBody] NewPlayerDTO dto)
+    [HttpPost]
+    public async Task<ActionResult> CreateAsync( NewPlayerDTO dto)
     {
         try
         {
+            Console.WriteLine("hsh");
             Player player = await Logic.CreateAsync(dto);
             return Ok(player);
         }

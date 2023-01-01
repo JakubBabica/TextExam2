@@ -8,8 +8,8 @@ public class NewPlayerDTO
     public int Id { get; set; }
     public int GoalsThisSeason { get; set; }
     public string Position { get; set; }
-
-    public NewPlayerDTO(string name, int shirtNo, decimal salary, int id, int goalsThisSeason, string position)
+    public string TeamName { get; set; }
+    public NewPlayerDTO(string name, int shirtNo, decimal salary, int id, int goalsThisSeason, string position,string teamName)
     {
         Name = name;
         ShirtNo = shirtNo;
@@ -17,5 +17,6 @@ public class NewPlayerDTO
         Id = id;
         GoalsThisSeason = goalsThisSeason;
         Position = position;
+        TeamName = teamName;
     }
 }

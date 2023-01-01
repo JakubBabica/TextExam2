@@ -15,5 +15,6 @@ public class Player
     public int GoalsThisSeason { get; set; }
     [Required]
     public string Position { get; set; }
+    public string Teamname { get; set; }
     public Player(){}
 }
