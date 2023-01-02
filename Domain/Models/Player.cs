@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Domain.Models;
 
 public class Player
@@ -15,6 +17,7 @@ public class Player
     public int GoalsThisSeason { get; set; }
     [Required]
     public string Position { get; set; }
-    public string Teamname { get; set; }
+    public string teamId { get; set; }
     public Player(){}
+    
 }

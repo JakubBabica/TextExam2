@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfcDataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230101093617_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20230102173516_MigrationFinal12")]
+    partial class MigrationFinal12
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,17 +42,18 @@ namespace EfcDataAccess.Migrations
                     b.Property<int>("ShirtNo")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("TeamName")
+                    b.Property<string>("teamId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TeamName");
+                    b.HasIndex("teamId");
 
                     b.ToTable("Players");
                 });
 
-            modelBuilder.Entity("Domain.Models.Team", b =>
+            modelBuilder.Entity("Domain.Team", b =>
                 {
                     b.Property<string>("TeamName")
                         .HasColumnType("TEXT");
@@ -72,12 +73,14 @@ namespace EfcDataAccess.Migrations
 
             modelBuilder.Entity("Domain.Models.Player", b =>
                 {
-                    b.HasOne("Domain.Models.Team", null)
+                    b.HasOne("Domain.Team", null)
                         .WithMany("Players")
-                        .HasForeignKey("TeamName");
+                        .HasForeignKey("teamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.Models.Team", b =>
+            modelBuilder.Entity("Domain.Team", b =>
                 {
                     b.Navigation("Players");
                 });

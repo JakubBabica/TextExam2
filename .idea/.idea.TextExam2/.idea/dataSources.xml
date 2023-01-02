@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="11" uuid="86266cf5-7788-458f-9445-6b7fdc26e39e">
+    <data-source source="LOCAL" name="12" uuid="17deb8ef-201f-47ec-89a2-d8b3007c7762">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\babic\RiderProjects\TestExam-2\EfcDataAccess\11.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\babic\RiderProjects\TestExam-2\EfcDataAccess\12.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

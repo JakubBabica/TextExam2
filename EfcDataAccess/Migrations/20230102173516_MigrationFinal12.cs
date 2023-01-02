@@ -4,7 +4,7 @@
 
 namespace EfcDataAccess.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class MigrationFinal12 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,22 +32,23 @@ namespace EfcDataAccess.Migrations
                     Salary = table.Column<decimal>(type: "TEXT", nullable: false),
                     GoalsThisSeason = table.Column<int>(type: "INTEGER", nullable: false),
                     Position = table.Column<string>(type: "TEXT", nullable: false),
-                    TeamName = table.Column<string>(type: "TEXT", nullable: true)
+                    teamId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Players", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Players_Teams_TeamName",
-                        column: x => x.TeamName,
+                        name: "FK_Players_Teams_teamId",
+                        column: x => x.teamId,
                         principalTable: "Teams",
-                        principalColumn: "TeamName");
+                        principalColumn: "TeamName",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Players_TeamName",
+                name: "IX_Players_teamId",
                 table: "Players",
-                column: "TeamName");
+                column: "teamId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
