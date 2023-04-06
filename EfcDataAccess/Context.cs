@@ -10,6 +10,7 @@ public class Context:DbContext
     public DbSet<Player> Players { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
     {
         optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/12.db");
     }

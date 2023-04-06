@@ -21,7 +21,7 @@ public class PlayerController:ControllerBase
         {
             Console.WriteLine("hsh");
             Player player = await Logic.CreateAsync(dto);
-            return Ok(player);
+            return Created($"Player/{dto.TeamName}",player);
         }
         catch (Exception e)
         {
